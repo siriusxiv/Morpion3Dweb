@@ -3,13 +3,8 @@ int height = 300;
 //the greater the slower
 int speed = 4;
 //in percents
+boolean rand = false;
 int aliveProbability=92;
-
-int rand(){
-  int n = int(random(100));
-  if(n>aliveProbability)  return 1;
-  else                    return 0;
-}
 
 int length = width_*height;
 boolean start = false;
@@ -58,13 +53,24 @@ class Pixel{
     x=x_;
     y=y_;
     if(extremity())   alive=0;
-    else              alive=rand();
+    else              alive=destiny();
   }
   Pixel(int x_, int y_, int dead){
     x=x_;
     y=y_;
     alive=0;
   }
+
+int destiny(){
+  if(rand){
+    int n = int(random(100));
+    if(n>aliveProbability)  return 1;
+    else                    return 0;
+  }else{
+    if(x==width_/4 || y==height/4 || x==width_*3/4 || y==height*3/4)	return 1;
+    else							return 0;
+  }
+}
   void draw(){
     if(alive>0){
       stroke(255,0,0);
@@ -86,17 +92,12 @@ class Pixel{
           newpixels_[x+width_*y].alive=alive;
           break;
         case 3:
-          newpixels_[x+width_*y].alive=changeLife(alive);
+          newpixels_[x+width_*y].alive=1;
           break;
         default:
           newpixels_[x+width_*y].alive=0;
       }
     }
-  }
-  
-  int changeLife(int alive){
-    if(alive==1)  return 0;
-    else          return 1;
   }
   
   int up(){
@@ -129,7 +130,7 @@ class Pixel{
   }
   int dr(){
     if(y==height-1 || x==width_-1)  return 0;
-    else          return pixels_[x-1+width_*(y-1)].alive;
+    else          return pixels_[x+1+width_*(y+1)].alive;
   }
   int sum(){
     return up()+down()+left()+right()+ur()+ul()+dr()+dl();
