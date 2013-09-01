@@ -233,7 +233,7 @@ int bottomback(int a){
 }
 
 void setup(){
-  size(151,504);
+  size(151,471);
   setVariables();
 }
 
@@ -320,7 +320,7 @@ void setVariables(){
     if(i==18){
       offset=20;
     }
-    Square square = new Square(50*(i%3),50*(i/3)+offset,i);
+    Square square = new Square(50*(i%3),50*((int)(i/3))+offset,i);
     squares.add(square);
   }
 }
