@@ -1,11 +1,12 @@
-int width = 300;
-int height = 300;
+int width = 400;
+int height = 400;
 //the greater the slower
-int speed = 4;
+int speed = 1;
 //in percents
-boolean rand = false;
+boolean rand = true;
 boolean cross = true;
-int aliveProbability=92;
+boolean infiniteLineGenerator = false;
+int aliveProbability=40;
 
 int length = width*height;
 boolean start = false;
@@ -14,6 +15,7 @@ void setup(){
    size(width,height);
    noSmooth();
    initpixels_();
+   textAlign(RIGHT);
 }
 
 boolean keyJustPressed=false;
@@ -29,10 +31,10 @@ void draw(){
   for(int i = 0; i<length; i++){
     pixels_[i].draw();
   }
-  if(start && frame%speed==0){
-    update();
-  }
-  frame++;
+  if(start && frame%speed==0) update();
+  if(start)  frame++;
+  fill(100);
+  text((int)(frame/speed),width-3,12);
 }
 
 int frame=0;
@@ -71,6 +73,37 @@ class Pixel{
   }
 
 int destiny(){
+  if(infiniteLineGenerator){
+    if(x==120 && y==height/2)  return 1;
+    else if(x==121 && y==height/2) return 1;
+    else if(x==122 && y==height/2) return 1;
+    else if(x==123 && y==height/2) return 1;
+    else if(x==124 && y==height/2) return 1;
+    else if(x==125 && y==height/2) return 1;
+    else if(x==126 && y==height/2) return 1;
+    else if(x==127 && y==height/2) return 1;
+    else if(x==129 && y==height/2) return 1;
+    else if(x==130 && y==height/2) return 1;
+    else if(x==131 && y==height/2) return 1;
+    else if(x==132 && y==height/2) return 1;
+    else if(x==133 && y==height/2) return 1;
+    else if(x==137 && y==height/2) return 1;
+    else if(x==138 && y==height/2) return 1;
+    else if(x==139 && y==height/2) return 1;
+    else if(x==146 && y==height/2) return 1;
+    else if(x==147 && y==height/2) return 1;
+    else if(x==148 && y==height/2) return 1;
+    else if(x==149 && y==height/2) return 1;
+    else if(x==150 && y==height/2) return 1;
+    else if(x==151 && y==height/2) return 1;
+    else if(x==152 && y==height/2) return 1;
+    else if(x==154 && y==height/2) return 1;
+    else if(x==155 && y==height/2) return 1;
+    else if(x==156 && y==height/2) return 1;
+    else if(x==157 && y==height/2) return 1;
+    else if(x==158 && y==height/2) return 1;
+    else  return 0;
+  }
   if(cross){
     if(x==y || x==height-y-1)  return 1;
     else      return 0;
