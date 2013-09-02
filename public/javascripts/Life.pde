@@ -1,11 +1,12 @@
-int width = 400;
-int height = 400;
+int width = 200;
+int height = 200;
 //the greater the slower
 int speed = 1;
 //in percents
 boolean rand = true;
-boolean cross = true;
+boolean cross = false;
 boolean infiniteLineGenerator = false;
+boolean gliderGun = true;
 int aliveProbability=40;
 
 int length = width*height;
@@ -73,6 +74,45 @@ class Pixel{
   }
 
 int destiny(){
+  if(gliderGun){
+    if(x==1 && y==6)  return 1;
+    else if(x==2 && y==6)  return 1;
+    else if(x==2 && y==7)  return 1;
+    else if(x==1 && y==7)  return 1;
+    else if(x==11 && y==6)  return 1;
+    else if(x==11 && y==7)  return 1;
+    else if(x==11 && y==8)  return 1;
+    else if(x==12 && y==5)  return 1;
+    else if(x==12 && y==9)  return 1;
+    else if(x==13 && y==4)  return 1;
+    else if(x==13 && y==10)  return 1;
+    else if(x==14 && y==4)  return 1;
+    else if(x==14 && y==10)  return 1;
+    else if(x==15 && y==7)  return 1;
+    else if(x==16 && y==5)  return 1;
+    else if(x==16 && y==9)  return 1;
+    else if(x==17 && y==6)  return 1;
+    else if(x==17 && y==7)  return 1;
+    else if(x==17 && y==8)  return 1;
+    else if(x==18 && y==7)  return 1;
+    else if(x==21 && y==6)  return 1;
+    else if(x==21 && y==5)  return 1;
+    else if(x==21 && y==4)  return 1;
+    else if(x==22 && y==6)  return 1;
+    else if(x==22 && y==5)  return 1;
+    else if(x==22 && y==4)  return 1;
+    else if(x==23 && y==3)  return 1;
+    else if(x==23 && y==7)  return 1;
+    else if(x==25 && y==7)  return 1;
+    else if(x==25 && y==8)  return 1;
+    else if(x==25 && y==3)  return 1;
+    else if(x==25 && y==2)  return 1;
+    else if(x==35 && y==5)  return 1;
+    else if(x==35 && y==4)  return 1;
+    else if(x==36 && y==5)  return 1;
+    else if(x==36 && y==4)  return 1;
+    else  return 0;
+  } 
   if(infiniteLineGenerator){
     if(x==120 && y==height/2)  return 1;
     else if(x==121 && y==height/2) return 1;
